@@ -2,69 +2,37 @@ Return-Path: <linux-parport-bounces+lists+linux-parport=lfdr.de@lists.infradead.
 X-Original-To: lists+linux-parport@lfdr.de
 Delivered-To: lists+linux-parport@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 159857A404
-	for <lists+linux-parport@lfdr.de>; Tue, 30 Jul 2019 11:25:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D264B173467
+	for <lists+linux-parport@lfdr.de>; Fri, 28 Feb 2020 10:44:09 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	Date:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:Date:Message-ID:
+	From:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vXMu6/hi7VUysDfhbTAxoaj9IOHSR/Z4WzCas/JLOAI=; b=trIPZapZW4Gr8G
-	oh6qbM0F2Tnzb4/5Gbk9MyjeYDTeXj0uHl5wDKlnorKqMY4il0UQ+ZjDSYDHpWiUfBrexCyl5HiRJ
-	rWFKct8CWb027zix/0rv4iwpBe8HUu41tiYAKECqWmrYRL47w7/lu3L52nvYajznFNyDi5cnkuXMI
-	G48+Lt1On5HfTgwViNqVBBI4Vd8SDKmpNqoNeUNykCdd358y/4xZOlhOOM1kS5/ENTEHvYAvW3Fge
-	7apfDCOW5BaOdTad4Xj1zpnAQX5ula68mayy1QLKqg1Vh4+24ENQtVtvB0r1wh6Rja3K3720vQHmn
-	2f3LGBi4GvYDiiyfM68w==;
+	List-Owner; bh=bBXYZ8JVe6UOKcYPdPHSWo/hIgapfRFuxoHRV0yZ8Hg=; b=liOb0O3kaCumxB
+	raGU0Avw/H12oBvvvpCy4/j3wRasqK9dTo1zQ44ZmbaMZi7fXXa1V2Zgf4ovIS2n21WaHFCKIt0sd
+	Zi/auDuCsdGYeJG+F/flNovaYMV5TTygW63EALQkoa4uWP+e7EpUUr7ym/4vZ4orP2Wb27gJw87BY
+	6rxjuniLU2gHd9qvCDxaGjlsoL/KMl2PKDdKHrrIB8jl5lcU6wUnydvudAYNwW0LT8F8X6BqvUxzP
+	hxImz22oY/R9l23Top7mdY3ALo3Igar+GmUI0yBjghHhKu8EJsWPhiTtVlR0V8PWKkzg5JXClMbJG
+	YpNKN/rjjT/25ArGZ7Hw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hsONz-0002gp-S2; Tue, 30 Jul 2019 09:25:35 +0000
-Received: from conuserg-08.nifty.com ([210.131.2.75])
- by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hrl5s-0000cm-B1
- for linux-parport@lists.infradead.org; Sun, 28 Jul 2019 15:28:17 +0000
-Received: from grover.flets-west.jp (softbank126026094249.bbtec.net
- [126.26.94.249]) (authenticated)
- by conuserg-08.nifty.com with ESMTP id x6SFRjoH032396;
- Mon, 29 Jul 2019 00:27:45 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-08.nifty.com x6SFRjoH032396
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1564327665;
- bh=cv2R2Hg8yEnOOT6uX3lov2e8BV6CxCkH2pDRomEfHqU=;
- h=From:To:Cc:Subject:Date:From;
- b=1rM1J0SSiXt8N8GSFtzbA6gKDrl7bbMixYBMrIh9it841XsP1x/ye3Vn8AmgewHGv
- JLp2iUxMgOvQZVluF4Gvd9CwggXf8asUj/FfvbYBchyK4bPD4AHnCmFr77NWQHMAww
- 3V0AFre1DcuG60vMrPtidwdt+/A/xScL5UJbWeTBADpfCqm3jKvAbMAFbWsYvvJAx+
- fEt1fYuVzB7mMPNNXuQ0uUXqCDCi5GjouTjyd7tBd8FOmO/KHhGPOqCPIGqRFILt2I
- 9exP42YkRV6yuSu7UrYrzOfQJz2XMEbanrQ6thbKyIyK8qz3XUvcRhOJxrRQmptkol
- pdLQZXxRgSznQ==
-X-Nifty-SrcIP: [126.26.94.249]
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
-To: Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
- Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>,
- linux-parport@lists.infradead.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Date: Mon, 29 Jul 2019 00:27:39 +0900
-Message-Id: <20190728152739.9249-1-yamada.masahiro@socionext.com>
-X-Mailer: git-send-email 2.17.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190728_082816_595069_4A30FAC3 
-X-CRM114-Status: UNSURE (   5.43  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.0 (+)
-X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.0 points)
- pts rule name              description
- ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [210.131.2.75 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
-X-Mailman-Approved-At: Tue, 30 Jul 2019 02:25:32 -0700
-Subject: [Linux-parport] [PATCH] ppdev: add header include guard
+	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1j7cBh-0003lk-9Q; Fri, 28 Feb 2020 09:44:05 +0000
+Received: from [2601:1c0:6280:3f0::19c2]
+ by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j7V4a-0003dZ-6m; Fri, 28 Feb 2020 02:08:16 +0000
+To: LKML <linux-kernel@vger.kernel.org>, linux-parport@lists.infradead.org
+From: Randy Dunlap <rdunlap@infradead.org>
+Message-ID: <e7868a5c-5356-bbbb-f416-799a7f75f7ad@infradead.org>
+Date: Thu, 27 Feb 2020 18:08:15 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.5.0
+MIME-Version: 1.0
+Content-Language: en-US
+X-Mailman-Approved-At: Fri, 28 Feb 2020 01:44:03 -0800
+Subject: [Linux-parport] [PATCH] parport: fix if-statement empty body
+ warnings
 X-BeenThere: linux-parport@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,47 +44,42 @@ List-Post: <mailto:linux-parport@lists.infradead.org>
 List-Help: <mailto:linux-parport-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-parport>,
  <mailto:linux-parport-request@lists.infradead.org?subject=subscribe>
-Cc: Masahiro Yamada <yamada.masahiro@socionext.com>,
- linux-kernel@vger.kernel.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "Linux-parport" <linux-parport-bounces@lists.infradead.org>
 Errors-To: linux-parport-bounces+lists+linux-parport=lfdr.de@lists.infradead.org
 
-Add a header include guard just in case.
-
-Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
----
-
- include/uapi/linux/ppdev.h | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/include/uapi/linux/ppdev.h b/include/uapi/linux/ppdev.h
-index 8fe3c64d149e..eb895b83f2bd 100644
---- a/include/uapi/linux/ppdev.h
-+++ b/include/uapi/linux/ppdev.h
-@@ -15,6 +15,9 @@
-  * Added PPGETMODES/PPGETMODE/PPGETPHASE, Fred Barnes <frmb2@ukc.ac.uk>, 03/01/2001
-  */
- 
-+#ifndef _UAPI_LINUX_PPDEV_H
-+#define _UAPI_LINUX_PPDEV_H
-+
- #define PP_IOCTL	'p'
- 
- /* Set mode for read/write (e.g. IEEE1284_MODE_EPP) */
-@@ -97,4 +100,4 @@ struct ppdev_frob_struct {
- /* only masks user-visible flags */
- #define PP_FLAGMASK	(PP_FASTWRITE | PP_FASTREAD | PP_W91284PIC)
- 
--
-+#endif /* _UAPI_LINUX_PPDEV_H */
--- 
-2.17.1
-
-
-_______________________________________________
-Linux-parport mailing list
-Linux-parport@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-parport
+RnJvbTogUmFuZHkgRHVubGFwIDxyZHVubGFwQGluZnJhZGVhZC5vcmc+CgpXaGVuIGRlYnVnZ2lu
+ZyB2aWEgRFBSSU5USygpIGlzIG5vdCBlbmFibGVkLCBtYWtlIHRoZSBEUFJJTlRLKCkKbWFjcm8g
+YmUgYW4gZW1wdHkgZG8td2hpbGUgYmxvY2suCgpUaGlzIGZpeGVzIGdjYyB3YXJuaW5ncyB3aGVu
+IC1XZXh0cmEgaXMgc2V0OgoKLi4vZHJpdmVycy9wYXJwb3J0L2llZWUxMjg0LmM6MjYyOjE4OiB3
+YXJuaW5nOiBzdWdnZXN0IGJyYWNlcyBhcm91bmQgZW1wdHkgYm9keSBpbiBhbiDigJhpZuKAmSBz
+dGF0ZW1lbnQgWy1XZW1wdHktYm9keV0KLi4vZHJpdmVycy9wYXJwb3J0L2llZWUxMjg0LmM6Mjg1
+OjE3OiB3YXJuaW5nOiBzdWdnZXN0IGJyYWNlcyBhcm91bmQgZW1wdHkgYm9keSBpbiBhbiDigJhp
+ZuKAmSBzdGF0ZW1lbnQgWy1XZW1wdHktYm9keV0KLi4vZHJpdmVycy9wYXJwb3J0L2llZWUxMjg0
+LmM6Mjk4OjE3OiB3YXJuaW5nOiBzdWdnZXN0IGJyYWNlcyBhcm91bmQgZW1wdHkgYm9keSBpbiBh
+biDigJhpZuKAmSBzdGF0ZW1lbnQgWy1XZW1wdHktYm9keV0KLi4vZHJpdmVycy9wYXJwb3J0L2ll
+ZWUxMjg0X29wcy5jOjU3NjoxODogd2FybmluZzogc3VnZ2VzdCBicmFjZXMgYXJvdW5kIGVtcHR5
+IGJvZHkgaW4gYW4g4oCYaWbigJkgc3RhdGVtZW50IFstV2VtcHR5LWJvZHldCgpJIGhhdmUgdmVy
+aWZpZWQgdGhhdCB0aGVyZSBpcyBubyBvYmplY3QgY29kZSBjaGFuZ2UgKHdpdGggZ2NjIDcuNS4w
+KS4KClNpZ25lZC1vZmYtYnk6IFJhbmR5IER1bmxhcCA8cmR1bmxhcEBpbmZyYWRlYWQub3JnPgpD
+YzogU3VkaXAgTXVraGVyamVlIDxzdWRpcG0ubXVraGVyamVlQGdtYWlsLmNvbT4KQ2M6IFN1ZGlw
+IE11a2hlcmplZSA8c3VkaXAubXVraGVyamVlQGNvZGV0aGluay5jby51az4KQ2M6IGxpbnV4LXBh
+cnBvcnRAbGlzdHMuaW5mcmFkZWFkLm9yZwotLS0KIGRyaXZlcnMvcGFycG9ydC9pZWVlMTI4NC5j
+ICAgICB8ICAgIDIgKy0KIGRyaXZlcnMvcGFycG9ydC9pZWVlMTI4NF9vcHMuYyB8ICAgIDIgKy0K
+IDIgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQoKLS0tIGxp
+bnV4LW5leHQtMjAyMDAyMjUub3JpZy9kcml2ZXJzL3BhcnBvcnQvaWVlZTEyODQuYworKysgbGlu
+dXgtbmV4dC0yMDIwMDIyNS9kcml2ZXJzL3BhcnBvcnQvaWVlZTEyODQuYwpAQCAtMzQsNyArMzQs
+NyBAQAogI2lmZGVmIERFQlVHCiAjZGVmaW5lIERQUklOVEsoc3R1ZmYuLi4pIHByaW50ayAoc3R1
+ZmYpCiAjZWxzZQotI2RlZmluZSBEUFJJTlRLKHN0dWZmLi4uKQorI2RlZmluZSBEUFJJTlRLKHN0
+dWZmLi4uKSBkbyB7fSB3aGlsZSAoMCkKICNlbmRpZgogCiAvKiBNYWtlIHBhcnBvcnRfd2FpdF9w
+ZXJpcGhlcmFsIHdha2UgdXAuCi0tLSBsaW51eC1uZXh0LTIwMjAwMjI1Lm9yaWcvZHJpdmVycy9w
+YXJwb3J0L2llZWUxMjg0X29wcy5jCisrKyBsaW51eC1uZXh0LTIwMjAwMjI1L2RyaXZlcnMvcGFy
+cG9ydC9pZWVlMTI4NF9vcHMuYwpAQCAtMzAsNyArMzAsNyBAQAogI2lmZGVmIERFQlVHCiAjZGVm
+aW5lIERQUklOVEsoc3R1ZmYuLi4pIHByaW50ayAoc3R1ZmYpCiAjZWxzZQotI2RlZmluZSBEUFJJ
+TlRLKHN0dWZmLi4uKQorI2RlZmluZSBEUFJJTlRLKHN0dWZmLi4uKSBkbyB7fSB3aGlsZSAoMCkK
+ICNlbmRpZgogCiAvKioqICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAqCgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXgtcGFycG9ydCBt
+YWlsaW5nIGxpc3QKTGludXgtcGFycG9ydEBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcGFycG9ydAo=
