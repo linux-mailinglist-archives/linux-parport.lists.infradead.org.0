@@ -2,38 +2,70 @@ Return-Path: <linux-parport-bounces+lists+linux-parport=lfdr.de@lists.infradead.
 X-Original-To: lists+linux-parport@lfdr.de
 Delivered-To: lists+linux-parport@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E841B173469
-	for <lists+linux-parport@lfdr.de>; Fri, 28 Feb 2020 10:44:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id CAA3C17346B
+	for <lists+linux-parport@lfdr.de>; Fri, 28 Feb 2020 10:44:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:References:
+	In-Reply-To:Date:To:From:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3eBnk8sX65yadI9mAJtZH8ZbpPr9uZ8+q+X01HAmF/s=; b=SGadad5aORP58i
-	5xK7vN6bGxIYMgw8I7ys1LTr8szYLw/k1RNcgBounJMj/1DvGKlAr0YVzZ1WH3Z7rUD3lbRyc+XPu
-	N85KK3wUfJDeCjqZz3+4wLpLCg7Kl5cEDZgaQVRGwKzoldWIwnwi6SD0BU7lQPcwkSW+E0gx70LrW
-	sI3DJgoBKBVMXvm9KBdWuNYm4l8yDKs1/FwRwCandSRMg3NopLnu7rbJaz+6zMJ+GxNVYVv81uRc5
-	3jXWkNFxb7IGAmwYwPqe+9cW6NO0P8Ax2zm5YrnRI6Oz7QGcQjowLKa56mE+H3ianhXR/ys9hyVwo
-	kP6cjMkhUc06wUOeCTMg==;
+	List-Owner; bh=4516ECc/ctEkKJiYv+OBpNdcY4DKPb0AjngBjjRsv5c=; b=Ef20Q2IEN5jUKN
+	MYjibVjlRjJCADSZqoGhJBpV7vs053fggK42vT8+nIL0ZLdzjc0n8qsD8vdVZVRFcwUi+qdTzWQW4
+	rT9fxCkCdF3M0kGPui7/AdL2qUi5y0Etj1hFhFVocxSBEXzaKQ2+r2K0tXuo+Ik8C19PiNpxS6HQf
+	1cEDxgx/WSAmiIh/UUu7EJbNVI7M0zEiGlTAP15lhEZmAez+DahdQnQUUx4VUjQnGSQUO+egLmcEV
+	nCM+fNy33IzruNxy5vCoLXcc+3UCLVzFMzvCPci/fPxQB/mC42KFW70YpAy2rAF/O4usY4APVOFFS
+	NdHb+45e3vTOBQ5Nkgsw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7cBi-0003n1-M6; Fri, 28 Feb 2020 09:44:06 +0000
-Received: from [2601:1c0:6280:3f0::19c2]
- by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7VlF-0004fj-Ec; Fri, 28 Feb 2020 02:52:21 +0000
-To: Joe Perches <joe@perches.com>, LKML <linux-kernel@vger.kernel.org>,
- linux-parport@lists.infradead.org
+	id 1j7cBj-0003o5-FX; Fri, 28 Feb 2020 09:44:07 +0000
+Received: from smtprelay0206.hostedemail.com ([216.40.44.206]
+ helo=smtprelay.hostedemail.com)
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j7WCu-0000Iz-Ch
+ for linux-parport@lists.infradead.org; Fri, 28 Feb 2020 03:20:58 +0000
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+ [216.40.38.60])
+ by smtprelay08.hostedemail.com (Postfix) with ESMTP id 78BE6182CED2A;
+ Fri, 28 Feb 2020 03:20:53 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
+ RULES_HIT:4:41:69:355:379:599:800:960:973:988:989:1042:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1593:1594:1605:1730:1747:1777:1792:1801:2198:2199:2393:2559:2562:2693:2828:2904:3138:3139:3140:3141:3142:3865:3866:3867:3868:3870:3871:3872:3874:4250:4321:4423:4605:5007:6691:7808:7875:7903:7974:8660:8957:9040:9121:9592:10004:10848:10954:11026:11232:11233:11473:11658:11914:12043:12296:12297:12438:12555:12679:12683:12760:13019:13148:13230:13439:14659:21080:21433:21451:21611:21626:21772:21990:30029:30054:30070,
+ 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
+ DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
+ LFtime:1, LUA_SUMMARY:none
+X-HE-Tag: jelly82_754dc5c3b54c
+X-Filterd-Recvd-Size: 19726
+Received: from XPS-9350 (unknown [172.58.38.199])
+ (Authenticated sender: joe@perches.com)
+ by omf19.hostedemail.com (Postfix) with ESMTPA;
+ Fri, 28 Feb 2020 03:20:49 +0000 (UTC)
+Message-ID: <f84c28c4d9a9b13a60b43b99756cb59ce14d7196.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: Randy Dunlap <rdunlap@infradead.org>, LKML
+ <linux-kernel@vger.kernel.org>,  linux-parport@lists.infradead.org
+Date: Thu, 27 Feb 2020 19:19:16 -0800
+In-Reply-To: <b249d3ec-7174-c8ba-af5c-d4e937232f0f@infradead.org>
 References: <e7868a5c-5356-bbbb-f416-799a7f75f7ad@infradead.org>
  <8ce0d190e0e6061c14daf469d454bb3626e33549.camel@perches.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <b249d3ec-7174-c8ba-af5c-d4e937232f0f@infradead.org>
-Date: Thu, 27 Feb 2020 18:52:19 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.5.0
+ <b249d3ec-7174-c8ba-af5c-d4e937232f0f@infradead.org>
+User-Agent: Evolution 3.34.1-2 
 MIME-Version: 1.0
-In-Reply-To: <8ce0d190e0e6061c14daf469d454bb3626e33549.camel@perches.com>
-Content-Language: en-US
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20200227_192056_618771_7CDDD6B6 
+X-CRM114-Status: GOOD (  12.26  )
+X-Spam-Score: 0.0 (/)
+X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
+ Content analysis details:   (0.0 points)
+ pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [216.40.44.206 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [216.40.44.206 listed in wl.mailspike.net]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-Mailman-Approved-At: Fri, 28 Feb 2020 01:44:03 -0800
 Subject: Re: [Linux-parport] [PATCH] parport: fix if-statement empty body
  warnings
@@ -49,192 +81,523 @@ List-Help: <mailto:linux-parport-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-parport>,
  <mailto:linux-parport-request@lists.infradead.org?subject=subscribe>
 Cc: Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "Linux-parport" <linux-parport-bounces@lists.infradead.org>
 Errors-To: linux-parport-bounces+lists+linux-parport=lfdr.de@lists.infradead.org
 
-T24gMi8yNy8yMCA2OjMyIFBNLCBKb2UgUGVyY2hlcyB3cm90ZToKPiBPbiBUaHUsIDIwMjAtMDIt
-MjcgYXQgMTg6MDggLTA4MDAsIFJhbmR5IER1bmxhcCB3cm90ZToKPj4gRnJvbTogUmFuZHkgRHVu
-bGFwIDxyZHVubGFwQGluZnJhZGVhZC5vcmc+Cj4+Cj4+IFdoZW4gZGVidWdnaW5nIHZpYSBEUFJJ
-TlRLKCkgaXMgbm90IGVuYWJsZWQsIG1ha2UgdGhlIERQUklOVEsoKQo+PiBtYWNybyBiZSBhbiBl
-bXB0eSBkby13aGlsZSBibG9jay4KPj4KPj4gVGhpcyBmaXhlcyBnY2Mgd2FybmluZ3Mgd2hlbiAt
-V2V4dHJhIGlzIHNldDoKPj4KPj4gLi4vZHJpdmVycy9wYXJwb3J0L2llZWUxMjg0LmM6MjYyOjE4
-OiB3YXJuaW5nOiBzdWdnZXN0IGJyYWNlcyBhcm91bmQgZW1wdHkgYm9keSBpbiBhbiDigJhpZuKA
-mSBzdGF0ZW1lbnQgWy1XZW1wdHktYm9keV0KPj4gLi4vZHJpdmVycy9wYXJwb3J0L2llZWUxMjg0
-LmM6Mjg1OjE3OiB3YXJuaW5nOiBzdWdnZXN0IGJyYWNlcyBhcm91bmQgZW1wdHkgYm9keSBpbiBh
-biDigJhpZuKAmSBzdGF0ZW1lbnQgWy1XZW1wdHktYm9keV0KPj4gLi4vZHJpdmVycy9wYXJwb3J0
-L2llZWUxMjg0LmM6Mjk4OjE3OiB3YXJuaW5nOiBzdWdnZXN0IGJyYWNlcyBhcm91bmQgZW1wdHkg
-Ym9keSBpbiBhbiDigJhpZuKAmSBzdGF0ZW1lbnQgWy1XZW1wdHktYm9keV0KPj4gLi4vZHJpdmVy
-cy9wYXJwb3J0L2llZWUxMjg0X29wcy5jOjU3NjoxODogd2FybmluZzogc3VnZ2VzdCBicmFjZXMg
-YXJvdW5kIGVtcHR5IGJvZHkgaW4gYW4g4oCYaWbigJkgc3RhdGVtZW50IFstV2VtcHR5LWJvZHld
-Cj4+Cj4+IEkgaGF2ZSB2ZXJpZmllZCB0aGF0IHRoZXJlIGlzIG5vIG9iamVjdCBjb2RlIGNoYW5n
-ZSAod2l0aCBnY2MgNy41LjApLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBSYW5keSBEdW5sYXAgPHJk
-dW5sYXBAaW5mcmFkZWFkLm9yZz4KPj4gQ2M6IFN1ZGlwIE11a2hlcmplZSA8c3VkaXBtLm11a2hl
-cmplZUBnbWFpbC5jb20+Cj4+IENjOiBTdWRpcCBNdWtoZXJqZWUgPHN1ZGlwLm11a2hlcmplZUBj
-b2RldGhpbmsuY28udWs+Cj4+IENjOiBsaW51eC1wYXJwb3J0QGxpc3RzLmluZnJhZGVhZC5vcmcK
-Pj4gLS0tCj4+ICBkcml2ZXJzL3BhcnBvcnQvaWVlZTEyODQuYyAgICAgfCAgICAyICstCj4+ICBk
-cml2ZXJzL3BhcnBvcnQvaWVlZTEyODRfb3BzLmMgfCAgICAyICstCj4+ICAyIGZpbGVzIGNoYW5n
-ZWQsIDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPj4KPj4gLS0tIGxpbnV4LW5leHQt
-MjAyMDAyMjUub3JpZy9kcml2ZXJzL3BhcnBvcnQvaWVlZTEyODQuYwo+PiArKysgbGludXgtbmV4
-dC0yMDIwMDIyNS9kcml2ZXJzL3BhcnBvcnQvaWVlZTEyODQuYwo+PiBAQCAtMzQsNyArMzQsNyBA
-QAo+PiAgI2lmZGVmIERFQlVHCj4+ICAjZGVmaW5lIERQUklOVEsoc3R1ZmYuLi4pIHByaW50ayAo
-c3R1ZmYpCj4+ICAjZWxzZQo+PiAtI2RlZmluZSBEUFJJTlRLKHN0dWZmLi4uKQo+PiArI2RlZmlu
-ZSBEUFJJTlRLKHN0dWZmLi4uKSBkbyB7fSB3aGlsZSAoMCkKPiAKPiBJdCdzIGZyZXF1ZW50bHkg
-YmV0dGVyIHRvIHVzZSBub3ByaW50awoKSGkgSm9lLAoKSSBjYW4ndCBmaW5kIHRoYXQgb25lLiBP
-aCwgaXQncyBub19wcmludGsuCgoKPiBBbmQgcGVyaGFwcyB0aGlzIHNob3VsZCBqdXN0IGJlY29t
-ZQo+IAo+ICNkZWZpbmUgRFBSSU5USyBwcl9kZWJ1Zwo+IAo+IG9yIHBlcmhhcHMgYSBjb252ZXJz
-aW9uIG9mIERQUklOVEsgdXNlcwoKCkknbSBPSyB3aXRoIGFueSBvZiB0aG9zZS4gIElmIHlvdSB3
-b3VsZCBhbHNvIGZpeCBpZWVlMTI4NC5jOgoKICBDQyBbTV0gIGRyaXZlcnMvcGFycG9ydC9pZWVl
-MTI4NC5vCi4uL2RyaXZlcnMvcGFycG9ydC9pZWVlMTI4NC5jOiBJbiBmdW5jdGlvbiDigJhwYXJw
-b3J0X2llZWUxMjg0X3Rlcm1pbmF0ZeKAmToKLi4vZHJpdmVycy9wYXJwb3J0L2llZWUxMjg0LmM6
-MjYyOjE4OiB3YXJuaW5nOiBzdWdnZXN0IGJyYWNlcyBhcm91bmQgZW1wdHkgYm9keSBpbiBhbiDi
-gJhpZuKAmSBzdGF0ZW1lbnQgWy1XZW1wdHktYm9keV0KICAgICAgIHBvcnQtPm5hbWUpOwogICAg
-ICAgICAgICAgICAgICBeCi4uL2RyaXZlcnMvcGFycG9ydC9pZWVlMTI4NC5jOjI4NToxNzogd2Fy
-bmluZzogc3VnZ2VzdCBicmFjZXMgYXJvdW5kIGVtcHR5IGJvZHkgaW4gYW4g4oCYaWbigJkgc3Rh
-dGVtZW50IFstV2VtcHR5LWJvZHldCiAgICAgIHBvcnQtPm5hbWUpOwogICAgICAgICAgICAgICAg
-IF4KLi4vZHJpdmVycy9wYXJwb3J0L2llZWUxMjg0LmM6Mjk4OjE3OiB3YXJuaW5nOiBzdWdnZXN0
-IGJyYWNlcyBhcm91bmQgZW1wdHkgYm9keSBpbiBhbiDigJhpZuKAmSBzdGF0ZW1lbnQgWy1XZW1w
-dHktYm9keV0KICAgICAgcG9ydC0+bmFtZSk7CiAgICAgICAgICAgICAgICAgXgoKeW91IGNhbiBh
-ZGQgbXkgYWNrIHRvIHRoZSBwYXRjaDoKQWNrZWQtYnk6IFJhbmR5IER1bmxhcCA8cmR1bmxhcEBp
-bmZyYWRlYWQub3JnPgoKVGhhbmtzLgoKPiAtLS0KPiAgZHJpdmVycy9wYXJwb3J0L2llZWUxMjg0
-X29wcy5jIHwgNjcgKysrKysrKysrKysrKysrLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4g
-IDEgZmlsZSBjaGFuZ2VkLCAyMyBpbnNlcnRpb25zKCspLCA0NCBkZWxldGlvbnMoLSkKPiAKPiBk
-aWZmIC0tZ2l0IGEvZHJpdmVycy9wYXJwb3J0L2llZWUxMjg0X29wcy5jIGIvZHJpdmVycy9wYXJw
-b3J0L2llZWUxMjg0X29wcy5jCj4gaW5kZXggNWQ0MWRkLi5iMWM5ZjUxIDEwMDY0NAo+IC0tLSBh
-L2RyaXZlcnMvcGFycG9ydC9pZWVlMTI4NF9vcHMuYwo+ICsrKyBiL2RyaXZlcnMvcGFycG9ydC9p
-ZWVlMTI4NF9vcHMuYwo+IEBAIC0yNywxMiArMjcsNiBAQAo+ICAjdW5kZWYgREVCVUcgLyogRG9u
-J3Qgd2FudCBhIGdhcmJsZWQgY29uc29sZSAqLwo+ICAjZW5kaWYKPiAgCj4gLSNpZmRlZiBERUJV
-Rwo+IC0jZGVmaW5lIERQUklOVEsoc3R1ZmYuLi4pIHByaW50ayAoc3R1ZmYpCj4gLSNlbHNlCj4g
-LSNkZWZpbmUgRFBSSU5USyhzdHVmZi4uLikKPiAtI2VuZGlmCj4gLQo+ICAvKioqICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAqCj4gICAqIE9uZS13YXkgZGF0YSB0cmFuc2ZlciBmdW5j
-dGlvbnMuICoKPiAgICogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICoqKi8KPiBAQCAt
-MTE1LDcgKzEwOSw3IEBAIHNpemVfdCBwYXJwb3J0X2llZWUxMjg0X3dyaXRlX2NvbXBhdCAoc3Ry
-dWN0IHBhcnBvcnQgKnBvcnQsCj4gIAkJaWYgKHNpZ25hbF9wZW5kaW5nIChjdXJyZW50KSkKPiAg
-CQkJYnJlYWs7Cj4gIAo+IC0JCURQUklOVEsgKEtFUk5fREVCVUcgIiVzOiBUaW1lZCBvdXRcbiIs
-IHBvcnQtPm5hbWUpOwo+ICsJCXByX2RlYnVnKCIlczogVGltZWQgb3V0XG4iLCBwb3J0LT5uYW1l
-KTsKPiAgCQlicmVhazsKPiAgCj4gIAlyZWFkeToKPiBAQCAtMTc4LDkgKzE3Miw4IEBAIHNpemVf
-dCBwYXJwb3J0X2llZWUxMjg0X3JlYWRfbmliYmxlIChzdHJ1Y3QgcGFycG9ydCAqcG9ydCwKPiAg
-CQlpZiAocGFycG9ydF93YWl0X3BlcmlwaGVyYWwgKHBvcnQsCj4gIAkJCQkJICAgICBQQVJQT1JU
-X1NUQVRVU19BQ0ssIDApKSB7Cj4gIAkJCS8qIFRpbWVvdXQgLS0gbm8gbW9yZSBkYXRhPyAqLwo+
-IC0JCQlEUFJJTlRLIChLRVJOX0RFQlVHCj4gLQkJCQkgIiVzOiBOaWJibGUgdGltZW91dCBhdCBl
-dmVudCA5ICglZCBieXRlcylcbiIsCj4gLQkJCQkgcG9ydC0+bmFtZSwgaS8yKTsKPiArCQkJcHJf
-ZGVidWcoIiVzOiBOaWJibGUgdGltZW91dCBhdCBldmVudCA5ICglZCBieXRlcylcbiIsCj4gKwkJ
-CQkgcG9ydC0+bmFtZSwgaSAvIDIpOwo+ICAJCQlwYXJwb3J0X2Zyb2JfY29udHJvbCAocG9ydCwg
-UEFSUE9SVF9DT05UUk9MX0FVVE9GRCwgMCk7Cj4gIAkJCWJyZWFrOwo+ICAJCX0KPiBAQCAtMjAx
-LDggKzE5NCw3IEBAIHNpemVfdCBwYXJwb3J0X2llZWUxMjg0X3JlYWRfbmliYmxlIChzdHJ1Y3Qg
-cGFycG9ydCAqcG9ydCwKPiAgCQkJCQkgICAgIFBBUlBPUlRfU1RBVFVTX0FDSywKPiAgCQkJCQkg
-ICAgIFBBUlBPUlRfU1RBVFVTX0FDSykpIHsKPiAgCQkJLyogVGltZW91dCAtLSBubyBtb3JlIGRh
-dGE/ICovCj4gLQkJCURQUklOVEsgKEtFUk5fREVCVUcKPiAtCQkJCSAiJXM6IE5pYmJsZSB0aW1l
-b3V0IGF0IGV2ZW50IDExXG4iLAo+ICsJCQlwcl9kZWJ1ZygiJXM6IE5pYmJsZSB0aW1lb3V0IGF0
-IGV2ZW50IDExXG4iLAo+ICAJCQkJIHBvcnQtPm5hbWUpOwo+ICAJCQlicmVhazsKPiAgCQl9Cj4g
-QEAgLTIxOSw5ICsyMTEsOCBAQCBzaXplX3QgcGFycG9ydF9pZWVlMTI4NF9yZWFkX25pYmJsZSAo
-c3RydWN0IHBhcnBvcnQgKnBvcnQsCj4gIAkJLyogUmVhZCB0aGUgbGFzdCBuaWJibGUgd2l0aG91
-dCBjaGVja2luZyBkYXRhIGF2YWlsLiAqLwo+ICAJCWlmIChwYXJwb3J0X3JlYWRfc3RhdHVzIChw
-b3J0KSAmIFBBUlBPUlRfU1RBVFVTX0VSUk9SKSB7Cj4gIAkJZW5kX29mX2RhdGE6Cj4gLQkJCURQ
-UklOVEsgKEtFUk5fREVCVUcKPiAtCQkJCSIlczogTm8gbW9yZSBuaWJibGUgZGF0YSAoJWQgYnl0
-ZXMpXG4iLAo+IC0JCQkJcG9ydC0+bmFtZSwgaS8yKTsKPiArCQkJcHJfZGVidWcoIiVzOiBObyBt
-b3JlIG5pYmJsZSBkYXRhICglZCBieXRlcylcbiIsCj4gKwkJCQkgcG9ydC0+bmFtZSwgaSAvIDIp
-Owo+ICAKPiAgCQkJLyogR28gdG8gcmV2ZXJzZSBpZGxlIHBoYXNlLiAqLwo+ICAJCQlwYXJwb3J0
-X2Zyb2JfY29udHJvbCAocG9ydCwKPiBAQCAtMjcyLDggKzI2Myw3IEBAIHNpemVfdCBwYXJwb3J0
-X2llZWUxMjg0X3JlYWRfYnl0ZSAoc3RydWN0IHBhcnBvcnQgKnBvcnQsCj4gIAkJCS8qIFRpbWVv
-dXQgLS0gbm8gbW9yZSBkYXRhPyAqLwo+ICAJCQlwYXJwb3J0X2Zyb2JfY29udHJvbCAocG9ydCwg
-UEFSUE9SVF9DT05UUk9MX0FVVE9GRCwKPiAgCQkJCQkJIDApOwo+IC0JCQlEUFJJTlRLIChLRVJO
-X0RFQlVHICIlczogQnl0ZSB0aW1lb3V0IGF0IGV2ZW50IDlcbiIsCj4gLQkJCQkgcG9ydC0+bmFt
-ZSk7Cj4gKwkJCXByX2RlYnVnKCIlczogQnl0ZSB0aW1lb3V0IGF0IGV2ZW50IDlcbiIsIHBvcnQt
-Pm5hbWUpOwo+ICAJCQlicmVhazsKPiAgCQl9Cj4gIAo+IEBAIC0yODgsOCArMjc4LDcgQEAgc2l6
-ZV90IHBhcnBvcnRfaWVlZTEyODRfcmVhZF9ieXRlIChzdHJ1Y3QgcGFycG9ydCAqcG9ydCwKPiAg
-CQkJCQkgICAgIFBBUlBPUlRfU1RBVFVTX0FDSywKPiAgCQkJCQkgICAgIFBBUlBPUlRfU1RBVFVT
-X0FDSykpIHsKPiAgCQkJLyogVGltZW91dCAtLSBubyBtb3JlIGRhdGE/ICovCj4gLQkJCURQUklO
-VEsgKEtFUk5fREVCVUcgIiVzOiBCeXRlIHRpbWVvdXQgYXQgZXZlbnQgMTFcbiIsCj4gLQkJCQkg
-cG9ydC0+bmFtZSk7Cj4gKwkJCXByX2RlYnVnKCIlczogQnl0ZSB0aW1lb3V0IGF0IGV2ZW50IDEx
-XG4iLCBwb3J0LT5uYW1lKTsKPiAgCQkJYnJlYWs7Cj4gIAkJfQo+ICAKPiBAQCAtMzA3LDggKzI5
-Niw3IEBAIHNpemVfdCBwYXJwb3J0X2llZWUxMjg0X3JlYWRfYnl0ZSAoc3RydWN0IHBhcnBvcnQg
-KnBvcnQsCj4gIAkJLyogUmVhZCB0aGUgbGFzdCBieXRlIHdpdGhvdXQgY2hlY2tpbmcgZGF0YSBh
-dmFpbC4gKi8KPiAgCQlpZiAocGFycG9ydF9yZWFkX3N0YXR1cyAocG9ydCkgJiBQQVJQT1JUX1NU
-QVRVU19FUlJPUikgewo+ICAJCWVuZF9vZl9kYXRhOgo+IC0JCQlEUFJJTlRLIChLRVJOX0RFQlVH
-Cj4gLQkJCQkgIiVzOiBObyBtb3JlIGJ5dGUgZGF0YSAoJXpkIGJ5dGVzKVxuIiwKPiArCQkJcHJf
-ZGVidWcoIiVzOiBObyBtb3JlIGJ5dGUgZGF0YSAoJXpkIGJ5dGVzKVxuIiwKPiAgCQkJCSBwb3J0
-LT5uYW1lLCBjb3VudCk7Cj4gIAo+ICAJCQkvKiBHbyB0byByZXZlcnNlIGlkbGUgcGhhc2UuICov
-Cj4gQEAgLTM1MywxMiArMzQxLDEwIEBAIGludCBlY3BfZm9yd2FyZF90b19yZXZlcnNlIChzdHJ1
-Y3QgcGFycG9ydCAqcG9ydCkKPiAgCQkJCQkgIFBBUlBPUlRfU1RBVFVTX1BBUEVST1VULCAwKTsK
-PiAgCj4gIAlpZiAoIXJldHZhbCkgewo+IC0JCURQUklOVEsgKEtFUk5fREVCVUcgIiVzOiBFQ1Ag
-ZGlyZWN0aW9uOiByZXZlcnNlXG4iLAo+IC0JCQkgcG9ydC0+bmFtZSk7Cj4gKwkJcHJfZGVidWco
-IiVzOiBFQ1AgZGlyZWN0aW9uOiByZXZlcnNlXG4iLCBwb3J0LT5uYW1lKTsKPiAgCQlwb3J0LT5p
-ZWVlMTI4NC5waGFzZSA9IElFRUUxMjg0X1BIX1JFVl9JRExFOwo+ICAJfSBlbHNlIHsKPiAtCQlE
-UFJJTlRLIChLRVJOX0RFQlVHICIlczogRUNQIGRpcmVjdGlvbjogZmFpbGVkIHRvIHJldmVyc2Vc
-biIsCj4gLQkJCSBwb3J0LT5uYW1lKTsKPiArCQlwcl9kZWJ1ZygiJXM6IEVDUCBkaXJlY3Rpb246
-IGZhaWxlZCB0byByZXZlcnNlXG4iLCBwb3J0LT5uYW1lKTsKPiAgCQlwb3J0LT5pZWVlMTI4NC5w
-aGFzZSA9IElFRUUxMjg0X1BIX0VDUF9ESVJfVU5LTk9XTjsKPiAgCX0KPiAgCj4gQEAgLTM4NCwx
-MiArMzcwLDEwIEBAIGludCBlY3BfcmV2ZXJzZV90b19mb3J3YXJkIChzdHJ1Y3QgcGFycG9ydCAq
-cG9ydCkKPiAgCj4gIAlpZiAoIXJldHZhbCkgewo+ICAJCXBhcnBvcnRfZGF0YV9mb3J3YXJkIChw
-b3J0KTsKPiAtCQlEUFJJTlRLIChLRVJOX0RFQlVHICIlczogRUNQIGRpcmVjdGlvbjogZm9yd2Fy
-ZFxuIiwKPiAtCQkJIHBvcnQtPm5hbWUpOwo+ICsJCXByX2RlYnVnKCIlczogRUNQIGRpcmVjdGlv
-bjogZm9yd2FyZFxuIiwgcG9ydC0+bmFtZSk7Cj4gIAkJcG9ydC0+aWVlZTEyODQucGhhc2UgPSBJ
-RUVFMTI4NF9QSF9GV0RfSURMRTsKPiAgCX0gZWxzZSB7Cj4gLQkJRFBSSU5USyAoS0VSTl9ERUJV
-Rwo+IC0JCQkgIiVzOiBFQ1AgZGlyZWN0aW9uOiBmYWlsZWQgdG8gc3dpdGNoIGZvcndhcmRcbiIs
-Cj4gKwkJcHJfZGVidWcoIiVzOiBFQ1AgZGlyZWN0aW9uOiBmYWlsZWQgdG8gc3dpdGNoIGZvcndh
-cmRcbiIsCj4gIAkJCSBwb3J0LT5uYW1lKTsKPiAgCQlwb3J0LT5pZWVlMTI4NC5waGFzZSA9IElF
-RUUxMjg0X1BIX0VDUF9ESVJfVU5LTk9XTjsKPiAgCX0KPiBAQCAtNDUwLDcgKzQzNCw3IEBAIHNp
-emVfdCBwYXJwb3J0X2llZWUxMjg0X2VjcF93cml0ZV9kYXRhIChzdHJ1Y3QgcGFycG9ydCAqcG9y
-dCwKPiAgCQl9Cj4gIAo+ICAJCS8qIFRpbWUgZm9yIEhvc3QgVHJhbnNmZXIgUmVjb3ZlcnkgKHBh
-Z2UgNDEgb2YgSUVFRTEyODQpICovCj4gLQkJRFBSSU5USyAoS0VSTl9ERUJVRyAiJXM6IEVDUCB0
-cmFuc2ZlciBzdGFsbGVkIVxuIiwgcG9ydC0+bmFtZSk7Cj4gKwkJcHJfZGVidWcoIiVzOiBFQ1Ag
-dHJhbnNmZXIgc3RhbGxlZCFcbiIsIHBvcnQtPm5hbWUpOwo+ICAKPiAgCQlwYXJwb3J0X2Zyb2Jf
-Y29udHJvbCAocG9ydCwgUEFSUE9SVF9DT05UUk9MX0lOSVQsCj4gIAkJCQkgICAgICBQQVJQT1JU
-X0NPTlRST0xfSU5JVCk7Cj4gQEAgLTQ2Niw4ICs0NTAsNyBAQCBzaXplX3QgcGFycG9ydF9pZWVl
-MTI4NF9lY3Bfd3JpdGVfZGF0YSAoc3RydWN0IHBhcnBvcnQgKnBvcnQsCj4gIAkJaWYgKCEocGFy
-cG9ydF9yZWFkX3N0YXR1cyAocG9ydCkgJiBQQVJQT1JUX1NUQVRVU19QQVBFUk9VVCkpCj4gIAkJ
-CWJyZWFrOwo+ICAKPiAtCQlEUFJJTlRLIChLRVJOX0RFQlVHICIlczogSG9zdCB0cmFuc2ZlciBy
-ZWNvdmVyZWRcbiIsCj4gLQkJCSBwb3J0LT5uYW1lKTsKPiArCQlwcl9kZWJ1ZygiJXM6IEhvc3Qg
-dHJhbnNmZXIgcmVjb3ZlcmVkXG4iLCBwb3J0LT5uYW1lKTsKPiAgCj4gIAkJaWYgKHRpbWVfYWZ0
-ZXJfZXEgKGppZmZpZXMsIGV4cGlyZSkpIGJyZWFrOwo+ICAJCWdvdG8gdHJ5X2FnYWluOwo+IEBA
-IC01NjUsMjMgKzU0OCwyMCBAQCBzaXplX3QgcGFycG9ydF9pZWVlMTI4NF9lY3BfcmVhZF9kYXRh
-IChzdHJ1Y3QgcGFycG9ydCAqcG9ydCwKPiAgICAgICAgICAgICAgICAgICAgIGNvbW1hbmQgb3Ig
-YSBub3JtYWwgZGF0YSBieXRlLCBkb24ndCBhY2NlcHQgaXQuICovCj4gIAkJaWYgKGNvbW1hbmQp
-IHsKPiAgCQkJaWYgKGJ5dGUgJiAweDgwKSB7Cj4gLQkJCQlEUFJJTlRLIChLRVJOX0RFQlVHICIl
-czogc3RvcHBpbmcgc2hvcnQgYXQgIgo+IC0JCQkJCSAiY2hhbm5lbCBjb21tYW5kICglMDJ4KVxu
-IiwKPiArCQkJCXByX2RlYnVnKCIlczogc3RvcHBpbmcgc2hvcnQgYXQgY2hhbm5lbCBjb21tYW5k
-ICglMDJ4KVxuIiwKPiAgCQkJCQkgcG9ydC0+bmFtZSwgYnl0ZSk7Cj4gIAkJCQlnb3RvIG91dDsK
-PiAgCQkJfQo+ICAJCQllbHNlIGlmIChwb3J0LT5pZWVlMTI4NC5tb2RlICE9IElFRUUxMjg0X01P
-REVfRUNQUkxFKQo+IC0JCQkJRFBSSU5USyAoS0VSTl9ERUJVRyAiJXM6IGRldmljZSBpbGxlZ2Fs
-bHkgIgo+IC0JCQkJCSAidXNpbmcgUkxFOyBhY2NlcHRpbmcgYW55d2F5XG4iLAo+ICsJCQkJcHJf
-ZGVidWcoIiVzOiBkZXZpY2UgaWxsZWdhbGx5IHVzaW5nIFJMRTsgYWNjZXB0aW5nIGFueXdheVxu
-IiwKPiAgCQkJCQkgcG9ydC0+bmFtZSk7Cj4gIAo+ICAJCQlybGVfY291bnQgPSBieXRlICsgMTsK
-PiAgCj4gIAkJCS8qIEFyZSB3ZSBhbGxvd2VkIHRvIHJlYWQgdGhhdCBtYW55IGJ5dGVzPyAqLwo+
-ICAJCQlpZiAocmxlX2NvdW50ID4gKGxlbiAtIGNvdW50KSkgewo+IC0JCQkJRFBSSU5USyAoS0VS
-Tl9ERUJVRyAiJXM6IGxlYXZpbmcgJWQgUkxFIGJ5dGVzICIKPiAtCQkJCQkgImZvciBuZXh0IHRp
-bWVcbiIsIHBvcnQtPm5hbWUsCj4gLQkJCQkJIHJsZV9jb3VudCk7Cj4gKwkJCQlwcl9kZWJ1Zygi
-JXM6IGxlYXZpbmcgJWQgUkxFIGJ5dGVzIGZvciBuZXh0IHRpbWVcbiIsCj4gKwkJCQkJIHBvcnQt
-Pm5hbWUsIHJsZV9jb3VudCk7Cj4gIAkJCQlicmVhazsKPiAgCQkJfQo+ICAKPiBAQCAtNTk2LDcg
-KzU3Niw3IEBAIHNpemVfdCBwYXJwb3J0X2llZWUxMjg0X2VjcF9yZWFkX2RhdGEgKHN0cnVjdCBw
-YXJwb3J0ICpwb3J0LAo+ICAJCQkJCSAgICAgUEFSUE9SVF9TVEFUVVNfQUNLKSkgewo+ICAJCQkv
-KiBJdCdzIGdvbmUgd3JvbmcuICBSZXR1cm4gd2hhdCBkYXRhIHdlIGhhdmUKPiAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgdG8gdGhlIGNhbGxlci4gKi8KPiAtCQkJRFBSSU5USyAoS0VSTl9E
-RUJVRyAiRUNQIHJlYWQgdGltZWQgb3V0IGF0IDQ1XG4iKTsKPiArCQkJcHJfZGVidWcoIkVDUCBy
-ZWFkIHRpbWVkIG91dCBhdCA0NVxuIik7Cj4gIAo+ICAJCQlpZiAoY29tbWFuZCkKPiAgCQkJCXBy
-aW50ayAoS0VSTl9XQVJOSU5HCj4gQEAgLTYyMCw3ICs2MDAsNyBAQCBzaXplX3QgcGFycG9ydF9p
-ZWVlMTI4NF9lY3BfcmVhZF9kYXRhIChzdHJ1Y3QgcGFycG9ydCAqcG9ydCwKPiAgCQkJbWVtc2V0
-IChidWYsIGJ5dGUsIHJsZV9jb3VudCk7Cj4gIAkJCWJ1ZiArPSBybGVfY291bnQ7Cj4gIAkJCWNv
-dW50ICs9IHJsZV9jb3VudDsKPiAtCQkJRFBSSU5USyAoS0VSTl9ERUJVRyAiJXM6IGRlY29tcHJl
-c3NlZCB0byAlZCBieXRlc1xuIiwKPiArCQkJcHJfZGVidWcoIiVzOiBkZWNvbXByZXNzZWQgdG8g
-JWQgYnl0ZXNcbiIsCj4gIAkJCQkgcG9ydC0+bmFtZSwgcmxlX2NvdW50KTsKPiAgCQl9IGVsc2Ug
-ewo+ICAJCQkvKiBOb3JtYWwgZGF0YSBieXRlLiAqLwo+IEBAIC02ODYsNyArNjY2LDcgQEAgc2l6
-ZV90IHBhcnBvcnRfaWVlZTEyODRfZWNwX3dyaXRlX2FkZHIgKHN0cnVjdCBwYXJwb3J0ICpwb3J0
-LAo+ICAJCX0KPiAgCj4gIAkJLyogVGltZSBmb3IgSG9zdCBUcmFuc2ZlciBSZWNvdmVyeSAocGFn
-ZSA0MSBvZiBJRUVFMTI4NCkgKi8KPiAtCQlEUFJJTlRLIChLRVJOX0RFQlVHICIlczogRUNQIHRy
-YW5zZmVyIHN0YWxsZWQhXG4iLCBwb3J0LT5uYW1lKTsKPiArCQlwcl9kZWJ1ZygiJXM6IEVDUCB0
-cmFuc2ZlciBzdGFsbGVkIVxuIiwgcG9ydC0+bmFtZSk7Cj4gIAo+ICAJCXBhcnBvcnRfZnJvYl9j
-b250cm9sIChwb3J0LCBQQVJQT1JUX0NPTlRST0xfSU5JVCwKPiAgCQkJCSAgICAgIFBBUlBPUlRf
-Q09OVFJPTF9JTklUKTsKPiBAQCAtNzAyLDggKzY4Miw3IEBAIHNpemVfdCBwYXJwb3J0X2llZWUx
-Mjg0X2VjcF93cml0ZV9hZGRyIChzdHJ1Y3QgcGFycG9ydCAqcG9ydCwKPiAgCQlpZiAoIShwYXJw
-b3J0X3JlYWRfc3RhdHVzIChwb3J0KSAmIFBBUlBPUlRfU1RBVFVTX1BBUEVST1VUKSkKPiAgCQkJ
-YnJlYWs7Cj4gIAo+IC0JCURQUklOVEsgKEtFUk5fREVCVUcgIiVzOiBIb3N0IHRyYW5zZmVyIHJl
-Y292ZXJlZFxuIiwKPiAtCQkJIHBvcnQtPm5hbWUpOwo+ICsJCXByX2RlYnVnKCIlczogSG9zdCB0
-cmFuc2ZlciByZWNvdmVyZWRcbiIsIHBvcnQtPm5hbWUpOwo+ICAKPiAgCQlpZiAodGltZV9hZnRl
-cl9lcSAoamlmZmllcywgZXhwaXJlKSkgYnJlYWs7Cj4gIAkJZ290byB0cnlfYWdhaW47Cj4gCj4g
-CgoKLS0gCn5SYW5keQpSZXBvcnRlZC1ieTogUmFuZHkgRHVubGFwIDxyZHVubGFwQGluZnJhZGVh
-ZC5vcmc+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpM
-aW51eC1wYXJwb3J0IG1haWxpbmcgbGlzdApMaW51eC1wYXJwb3J0QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1wYXJw
-b3J0Cg==
+Eliminate warnings by using pr_debug which is the more typical
+kernel debugging style and also enable dynamic_debug on these
+outputs.
+
+Miscellaneous:
+
+o A few messages were logged at KERN_INFO when enabled, now KERN_DEBUG
+o Convert %d/%d to %zd/%zu to avoid compilation warnings
+
+Original-patch-by: Randy Dunlap <rdunlap@infradead.org>
+Signed-off-by: Joe Perches <joe@perches.com>
+Acked-by: Randy Dunlap <rdunlap@infradead.org>
+---
+ drivers/parport/ieee1284.c     | 90 ++++++++++++++++--------------------------
+ drivers/parport/ieee1284_ops.c | 67 +++++++++++--------------------
+ 2 files changed, 57 insertions(+), 100 deletions(-)
+
+diff --git a/drivers/parport/ieee1284.c b/drivers/parport/ieee1284.c
+index 90fb735..ba562bc 100644
+--- a/drivers/parport/ieee1284.c
++++ b/drivers/parport/ieee1284.c
+@@ -31,12 +31,6 @@
+ #undef DEBUG /* Don't want a garbled console */
+ #endif
+ 
+-#ifdef DEBUG
+-#define DPRINTK(stuff...) printk (stuff)
+-#else
+-#define DPRINTK(stuff...)
+-#endif
+-
+ /* Make parport_wait_peripheral wake up.
+  * It will be useful to call this from an interrupt handler. */
+ static void parport_ieee1284_wakeup (struct parport *port)
+@@ -258,12 +252,11 @@ static void parport_ieee1284_terminate (struct parport *port)
+ 						     PARPORT_STATUS_PAPEROUT,
+ 						     PARPORT_STATUS_PAPEROUT);
+ 			if (r)
+-				DPRINTK (KERN_INFO "%s: Timeout at event 49\n",
++				pr_debug("%s: Timeout at event 49\n",
+ 					 port->name);
+ 
+ 			parport_data_forward (port);
+-			DPRINTK (KERN_DEBUG "%s: ECP direction: forward\n",
+-				 port->name);
++			pr_debug("%s: ECP direction: forward\n", port->name);
+ 			port->ieee1284.phase = IEEE1284_PH_FWD_IDLE;
+ 		}
+ 
+@@ -281,8 +274,7 @@ static void parport_ieee1284_terminate (struct parport *port)
+ 		/* Event 24: nAck goes low */
+ 		r = parport_wait_peripheral (port, PARPORT_STATUS_ACK, 0);
+ 		if (r)
+-			DPRINTK (KERN_INFO "%s: Timeout at event 24\n",
+-				 port->name);
++			pr_debug("%s: Timeout at event 24\n", port->name);
+ 
+ 		/* Event 25: Set nAutoFd low */
+ 		parport_frob_control (port,
+@@ -294,8 +286,7 @@ static void parport_ieee1284_terminate (struct parport *port)
+ 					     PARPORT_STATUS_ACK, 
+ 					     PARPORT_STATUS_ACK);
+ 		if (r)
+-			DPRINTK (KERN_INFO "%s: Timeout at event 27\n",
+-				 port->name);
++			pr_debug("%s: Timeout at event 27\n", port->name);
+ 
+ 		/* Event 29: Set nAutoFd high */
+ 		parport_frob_control (port, PARPORT_CONTROL_AUTOFD, 0);
+@@ -304,8 +295,7 @@ static void parport_ieee1284_terminate (struct parport *port)
+ 	port->ieee1284.mode = IEEE1284_MODE_COMPAT;
+ 	port->ieee1284.phase = IEEE1284_PH_FWD_IDLE;
+ 
+-	DPRINTK (KERN_DEBUG "%s: In compatibility (forward idle) mode\n",
+-		 port->name);
++	pr_debug("%s: In compatibility (forward idle) mode\n", port->name);
+ }		
+ #endif /* IEEE1284 support */
+ 
+@@ -406,8 +396,7 @@ int parport_negotiate (struct parport *port, int mode)
+ 				      PARPORT_CONTROL_SELECT
+ 				      | PARPORT_CONTROL_AUTOFD,
+ 				      PARPORT_CONTROL_SELECT);
+-		DPRINTK (KERN_DEBUG
+-			 "%s: Peripheral not IEEE1284 compliant (0x%02X)\n",
++		pr_debug("%s: Peripheral not IEEE1284 compliant (0x%02X)\n",
+ 			 port->name, parport_read_status (port));
+ 		port->ieee1284.phase = IEEE1284_PH_FWD_IDLE;
+ 		return -1; /* Not IEEE1284 compliant */
+@@ -430,8 +419,7 @@ int parport_negotiate (struct parport *port, int mode)
+ 				     PARPORT_STATUS_ACK,
+ 				     PARPORT_STATUS_ACK)) {
+ 		/* This shouldn't really happen with a compliant device. */
+-		DPRINTK (KERN_DEBUG
+-			 "%s: Mode 0x%02x not supported? (0x%02x)\n",
++		pr_debug("%s: Mode 0x%02x not supported? (0x%02x)\n",
+ 			 port->name, mode, port->ops->read_status (port));
+ 		parport_ieee1284_terminate (port);
+ 		return 1;
+@@ -442,7 +430,7 @@ int parport_negotiate (struct parport *port, int mode)
+ 	/* xflag should be high for all modes other than nibble (0). */
+ 	if (mode && !xflag) {
+ 		/* Mode not supported. */
+-		DPRINTK (KERN_DEBUG "%s: Mode 0x%02x rejected by peripheral\n",
++		pr_debug("%s: Mode 0x%02x rejected by peripheral\n",
+ 			 port->name, mode);
+ 		parport_ieee1284_terminate (port);
+ 		return 1;
+@@ -463,9 +451,7 @@ int parport_negotiate (struct parport *port, int mode)
+ 		/* Event 52: nAck goes low */
+ 		if (parport_wait_peripheral (port, PARPORT_STATUS_ACK, 0)) {
+ 			/* This peripheral is _very_ slow. */
+-			DPRINTK (KERN_DEBUG
+-				 "%s: Event 52 didn't happen\n",
+-				 port->name);
++			pr_debug("%s: Event 52 didn't happen\n", port->name);
+ 			parport_ieee1284_terminate (port);
+ 			return 1;
+ 		}
+@@ -481,10 +467,9 @@ int parport_negotiate (struct parport *port, int mode)
+ 					     PARPORT_STATUS_ACK)) {
+ 			/* This shouldn't really happen with a compliant
+ 			 * device. */
+-			DPRINTK (KERN_DEBUG
+-				 "%s: Mode 0x%02x not supported? (0x%02x)\n",
++			pr_debug("%s: Mode 0x%02x not supported? (0x%02x)\n",
+ 				 port->name, mode,
+-				 port->ops->read_status (port));
++				 port->ops->read_status(port));
+ 			parport_ieee1284_terminate (port);
+ 			return 1;
+ 		}
+@@ -495,8 +480,8 @@ int parport_negotiate (struct parport *port, int mode)
+ 		/* xflag should be high. */
+ 		if (!xflag) {
+ 			/* Extended mode not supported. */
+-			DPRINTK (KERN_DEBUG "%s: Extended mode 0x%02x not "
+-				 "supported\n", port->name, mode);
++			pr_debug("%s: Extended mode 0x%02x not supported\n",
++				 port->name, mode);
+ 			parport_ieee1284_terminate (port);
+ 			return 1;
+ 		}
+@@ -505,7 +490,7 @@ int parport_negotiate (struct parport *port, int mode)
+ 	}
+ 
+ 	/* Mode is supported */
+-	DPRINTK (KERN_DEBUG "%s: In mode 0x%02x\n", port->name, mode);
++	pr_debug("%s: In mode 0x%02x\n", port->name, mode);
+ 	port->ieee1284.mode = mode;
+ 
+ 	/* But ECP is special */
+@@ -522,13 +507,11 @@ int parport_negotiate (struct parport *port, int mode)
+ 					     PARPORT_STATUS_PAPEROUT,
+ 					     PARPORT_STATUS_PAPEROUT);
+ 		if (r) {
+-			DPRINTK (KERN_INFO "%s: Timeout at event 31\n",
+-				port->name);
++			pr_debug("%s: Timeout at event 31\n", port->name);
+ 		}
+ 
+ 		port->ieee1284.phase = IEEE1284_PH_FWD_IDLE;
+-		DPRINTK (KERN_DEBUG "%s: ECP direction: forward\n",
+-			 port->name);
++		pr_debug("%s: ECP direction: forward\n", port->name);
+ 	} else switch (mode) {
+ 	case IEEE1284_MODE_NIBBLE:
+ 	case IEEE1284_MODE_BYTE:
+@@ -573,7 +556,7 @@ void parport_ieee1284_interrupt (void *handle)
+ 	if (port->ieee1284.phase == IEEE1284_PH_REV_IDLE) {
+ 		/* An interrupt in this phase means that data
+ 		 * is now available. */
+-		DPRINTK (KERN_DEBUG "%s: Data available\n", port->name);
++		pr_debug("%s: Data available\n", port->name);
+ 		parport_ieee1284_ack_data_avail (port);
+ 	}
+ #endif /* IEEE1284 support */
+@@ -617,13 +600,12 @@ ssize_t parport_write (struct parport *port, const void *buffer, size_t len)
+ 		parport_negotiate (port, IEEE1284_MODE_COMPAT);
+ 		/* fall through */
+ 	case IEEE1284_MODE_COMPAT:
+-		DPRINTK (KERN_DEBUG "%s: Using compatibility mode\n",
+-			 port->name);
++		pr_debug("%s: Using compatibility mode\n", port->name);
+ 		fn = port->ops->compat_write_data;
+ 		break;
+ 
+ 	case IEEE1284_MODE_EPP:
+-		DPRINTK (KERN_DEBUG "%s: Using EPP mode\n", port->name);
++		pr_debug("%s: Using EPP mode\n", port->name);
+ 		if (addr) {
+ 			fn = port->ops->epp_write_addr;
+ 		} else {
+@@ -631,8 +613,7 @@ ssize_t parport_write (struct parport *port, const void *buffer, size_t len)
+ 		}
+ 		break;
+ 	case IEEE1284_MODE_EPPSWE:
+-		DPRINTK (KERN_DEBUG "%s: Using software-emulated EPP mode\n",
+-			port->name);
++		pr_debug("%s: Using software-emulated EPP mode\n", port->name);
+ 		if (addr) {
+ 			fn = parport_ieee1284_epp_write_addr;
+ 		} else {
+@@ -641,7 +622,7 @@ ssize_t parport_write (struct parport *port, const void *buffer, size_t len)
+ 		break;
+ 	case IEEE1284_MODE_ECP:
+ 	case IEEE1284_MODE_ECPRLE:
+-		DPRINTK (KERN_DEBUG "%s: Using ECP mode\n", port->name);
++		pr_debug("%s: Using ECP mode\n", port->name);
+ 		if (addr) {
+ 			fn = port->ops->ecp_write_addr;
+ 		} else {
+@@ -650,8 +631,7 @@ ssize_t parport_write (struct parport *port, const void *buffer, size_t len)
+ 		break;
+ 
+ 	case IEEE1284_MODE_ECPSWE:
+-		DPRINTK (KERN_DEBUG "%s: Using software-emulated ECP mode\n",
+-			 port->name);
++		pr_debug("%s: Using software-emulated ECP mode\n", port->name);
+ 		/* The caller has specified that it must be emulated,
+ 		 * even if we have ECP hardware! */
+ 		if (addr) {
+@@ -662,13 +642,13 @@ ssize_t parport_write (struct parport *port, const void *buffer, size_t len)
+ 		break;
+ 
+ 	default:
+-		DPRINTK (KERN_DEBUG "%s: Unknown mode 0x%02x\n", port->name,
+-			port->ieee1284.mode);
++		pr_debug("%s: Unknown mode 0x%02x\n",
++			 port->name, port->ieee1284.mode);
+ 		return -ENOSYS;
+ 	}
+ 
+ 	retval = (*fn) (port, buffer, len, 0);
+-	DPRINTK (KERN_DEBUG "%s: wrote %d/%d bytes\n", port->name, retval, len);
++	pr_debug("%s: wrote %zd/%zu bytes\n", port->name, retval, len);
+ 	return retval;
+ #endif /* IEEE1284 support */
+ }
+@@ -715,7 +695,7 @@ ssize_t parport_read (struct parport *port, void *buffer, size_t len)
+ 		if ((port->physport->modes & PARPORT_MODE_TRISTATE) &&
+ 		    !parport_negotiate (port, IEEE1284_MODE_BYTE)) {
+ 			/* got into BYTE mode OK */
+-			DPRINTK (KERN_DEBUG "%s: Using byte mode\n", port->name);
++			pr_debug("%s: Using byte mode\n", port->name);
+ 			fn = port->ops->byte_read_data;
+ 			break;
+ 		}
+@@ -724,17 +704,17 @@ ssize_t parport_read (struct parport *port, void *buffer, size_t len)
+ 		}
+ 		/* fall through - to NIBBLE */
+ 	case IEEE1284_MODE_NIBBLE:
+-		DPRINTK (KERN_DEBUG "%s: Using nibble mode\n", port->name);
++		pr_debug("%s: Using nibble mode\n", port->name);
+ 		fn = port->ops->nibble_read_data;
+ 		break;
+ 
+ 	case IEEE1284_MODE_BYTE:
+-		DPRINTK (KERN_DEBUG "%s: Using byte mode\n", port->name);
++		pr_debug("%s: Using byte mode\n", port->name);
+ 		fn = port->ops->byte_read_data;
+ 		break;
+ 
+ 	case IEEE1284_MODE_EPP:
+-		DPRINTK (KERN_DEBUG "%s: Using EPP mode\n", port->name);
++		pr_debug("%s: Using EPP mode\n", port->name);
+ 		if (addr) {
+ 			fn = port->ops->epp_read_addr;
+ 		} else {
+@@ -742,8 +722,7 @@ ssize_t parport_read (struct parport *port, void *buffer, size_t len)
+ 		}
+ 		break;
+ 	case IEEE1284_MODE_EPPSWE:
+-		DPRINTK (KERN_DEBUG "%s: Using software-emulated EPP mode\n",
+-			port->name);
++		pr_debug("%s: Using software-emulated EPP mode\n", port->name);
+ 		if (addr) {
+ 			fn = parport_ieee1284_epp_read_addr;
+ 		} else {
+@@ -752,19 +731,18 @@ ssize_t parport_read (struct parport *port, void *buffer, size_t len)
+ 		break;
+ 	case IEEE1284_MODE_ECP:
+ 	case IEEE1284_MODE_ECPRLE:
+-		DPRINTK (KERN_DEBUG "%s: Using ECP mode\n", port->name);
++		pr_debug("%s: Using ECP mode\n", port->name);
+ 		fn = port->ops->ecp_read_data;
+ 		break;
+ 
+ 	case IEEE1284_MODE_ECPSWE:
+-		DPRINTK (KERN_DEBUG "%s: Using software-emulated ECP mode\n",
+-			 port->name);
++		pr_debug("%s: Using software-emulated ECP mode\n", port->name);
+ 		fn = parport_ieee1284_ecp_read_data;
+ 		break;
+ 
+ 	default:
+-		DPRINTK (KERN_DEBUG "%s: Unknown mode 0x%02x\n", port->name,
+-			 port->physport->ieee1284.mode);
++		pr_debug("%s: Unknown mode 0x%02x\n",
++			 port->name, port->physport->ieee1284.mode);
+ 		return -ENOSYS;
+ 	}
+ 
+diff --git a/drivers/parport/ieee1284_ops.c b/drivers/parport/ieee1284_ops.c
+index 5d41dd..b1c9f51 100644
+--- a/drivers/parport/ieee1284_ops.c
++++ b/drivers/parport/ieee1284_ops.c
+@@ -27,12 +27,6 @@
+ #undef DEBUG /* Don't want a garbled console */
+ #endif
+ 
+-#ifdef DEBUG
+-#define DPRINTK(stuff...) printk (stuff)
+-#else
+-#define DPRINTK(stuff...)
+-#endif
+-
+ /***                                *
+  * One-way data transfer functions. *
+  *                                ***/
+@@ -115,7 +109,7 @@ size_t parport_ieee1284_write_compat (struct parport *port,
+ 		if (signal_pending (current))
+ 			break;
+ 
+-		DPRINTK (KERN_DEBUG "%s: Timed out\n", port->name);
++		pr_debug("%s: Timed out\n", port->name);
+ 		break;
+ 
+ 	ready:
+@@ -178,9 +172,8 @@ size_t parport_ieee1284_read_nibble (struct parport *port,
+ 		if (parport_wait_peripheral (port,
+ 					     PARPORT_STATUS_ACK, 0)) {
+ 			/* Timeout -- no more data? */
+-			DPRINTK (KERN_DEBUG
+-				 "%s: Nibble timeout at event 9 (%d bytes)\n",
+-				 port->name, i/2);
++			pr_debug("%s: Nibble timeout at event 9 (%d bytes)\n",
++				 port->name, i / 2);
+ 			parport_frob_control (port, PARPORT_CONTROL_AUTOFD, 0);
+ 			break;
+ 		}
+@@ -201,8 +194,7 @@ size_t parport_ieee1284_read_nibble (struct parport *port,
+ 					     PARPORT_STATUS_ACK,
+ 					     PARPORT_STATUS_ACK)) {
+ 			/* Timeout -- no more data? */
+-			DPRINTK (KERN_DEBUG
+-				 "%s: Nibble timeout at event 11\n",
++			pr_debug("%s: Nibble timeout at event 11\n",
+ 				 port->name);
+ 			break;
+ 		}
+@@ -219,9 +211,8 @@ size_t parport_ieee1284_read_nibble (struct parport *port,
+ 		/* Read the last nibble without checking data avail. */
+ 		if (parport_read_status (port) & PARPORT_STATUS_ERROR) {
+ 		end_of_data:
+-			DPRINTK (KERN_DEBUG
+-				"%s: No more nibble data (%d bytes)\n",
+-				port->name, i/2);
++			pr_debug("%s: No more nibble data (%d bytes)\n",
++				 port->name, i / 2);
+ 
+ 			/* Go to reverse idle phase. */
+ 			parport_frob_control (port,
+@@ -272,8 +263,7 @@ size_t parport_ieee1284_read_byte (struct parport *port,
+ 			/* Timeout -- no more data? */
+ 			parport_frob_control (port, PARPORT_CONTROL_AUTOFD,
+ 						 0);
+-			DPRINTK (KERN_DEBUG "%s: Byte timeout at event 9\n",
+-				 port->name);
++			pr_debug("%s: Byte timeout at event 9\n", port->name);
+ 			break;
+ 		}
+ 
+@@ -288,8 +278,7 @@ size_t parport_ieee1284_read_byte (struct parport *port,
+ 					     PARPORT_STATUS_ACK,
+ 					     PARPORT_STATUS_ACK)) {
+ 			/* Timeout -- no more data? */
+-			DPRINTK (KERN_DEBUG "%s: Byte timeout at event 11\n",
+-				 port->name);
++			pr_debug("%s: Byte timeout at event 11\n", port->name);
+ 			break;
+ 		}
+ 
+@@ -307,8 +296,7 @@ size_t parport_ieee1284_read_byte (struct parport *port,
+ 		/* Read the last byte without checking data avail. */
+ 		if (parport_read_status (port) & PARPORT_STATUS_ERROR) {
+ 		end_of_data:
+-			DPRINTK (KERN_DEBUG
+-				 "%s: No more byte data (%zd bytes)\n",
++			pr_debug("%s: No more byte data (%zd bytes)\n",
+ 				 port->name, count);
+ 
+ 			/* Go to reverse idle phase. */
+@@ -353,12 +341,10 @@ int ecp_forward_to_reverse (struct parport *port)
+ 					  PARPORT_STATUS_PAPEROUT, 0);
+ 
+ 	if (!retval) {
+-		DPRINTK (KERN_DEBUG "%s: ECP direction: reverse\n",
+-			 port->name);
++		pr_debug("%s: ECP direction: reverse\n", port->name);
+ 		port->ieee1284.phase = IEEE1284_PH_REV_IDLE;
+ 	} else {
+-		DPRINTK (KERN_DEBUG "%s: ECP direction: failed to reverse\n",
+-			 port->name);
++		pr_debug("%s: ECP direction: failed to reverse\n", port->name);
+ 		port->ieee1284.phase = IEEE1284_PH_ECP_DIR_UNKNOWN;
+ 	}
+ 
+@@ -384,12 +370,10 @@ int ecp_reverse_to_forward (struct parport *port)
+ 
+ 	if (!retval) {
+ 		parport_data_forward (port);
+-		DPRINTK (KERN_DEBUG "%s: ECP direction: forward\n",
+-			 port->name);
++		pr_debug("%s: ECP direction: forward\n", port->name);
+ 		port->ieee1284.phase = IEEE1284_PH_FWD_IDLE;
+ 	} else {
+-		DPRINTK (KERN_DEBUG
+-			 "%s: ECP direction: failed to switch forward\n",
++		pr_debug("%s: ECP direction: failed to switch forward\n",
+ 			 port->name);
+ 		port->ieee1284.phase = IEEE1284_PH_ECP_DIR_UNKNOWN;
+ 	}
+@@ -450,7 +434,7 @@ size_t parport_ieee1284_ecp_write_data (struct parport *port,
+ 		}
+ 
+ 		/* Time for Host Transfer Recovery (page 41 of IEEE1284) */
+-		DPRINTK (KERN_DEBUG "%s: ECP transfer stalled!\n", port->name);
++		pr_debug("%s: ECP transfer stalled!\n", port->name);
+ 
+ 		parport_frob_control (port, PARPORT_CONTROL_INIT,
+ 				      PARPORT_CONTROL_INIT);
+@@ -466,8 +450,7 @@ size_t parport_ieee1284_ecp_write_data (struct parport *port,
+ 		if (!(parport_read_status (port) & PARPORT_STATUS_PAPEROUT))
+ 			break;
+ 
+-		DPRINTK (KERN_DEBUG "%s: Host transfer recovered\n",
+-			 port->name);
++		pr_debug("%s: Host transfer recovered\n", port->name);
+ 
+ 		if (time_after_eq (jiffies, expire)) break;
+ 		goto try_again;
+@@ -565,23 +548,20 @@ size_t parport_ieee1284_ecp_read_data (struct parport *port,
+                    command or a normal data byte, don't accept it. */
+ 		if (command) {
+ 			if (byte & 0x80) {
+-				DPRINTK (KERN_DEBUG "%s: stopping short at "
+-					 "channel command (%02x)\n",
++				pr_debug("%s: stopping short at channel command (%02x)\n",
+ 					 port->name, byte);
+ 				goto out;
+ 			}
+ 			else if (port->ieee1284.mode != IEEE1284_MODE_ECPRLE)
+-				DPRINTK (KERN_DEBUG "%s: device illegally "
+-					 "using RLE; accepting anyway\n",
++				pr_debug("%s: device illegally using RLE; accepting anyway\n",
+ 					 port->name);
+ 
+ 			rle_count = byte + 1;
+ 
+ 			/* Are we allowed to read that many bytes? */
+ 			if (rle_count > (len - count)) {
+-				DPRINTK (KERN_DEBUG "%s: leaving %d RLE bytes "
+-					 "for next time\n", port->name,
+-					 rle_count);
++				pr_debug("%s: leaving %d RLE bytes for next time\n",
++					 port->name, rle_count);
+ 				break;
+ 			}
+ 
+@@ -596,7 +576,7 @@ size_t parport_ieee1284_ecp_read_data (struct parport *port,
+ 					     PARPORT_STATUS_ACK)) {
+ 			/* It's gone wrong.  Return what data we have
+                            to the caller. */
+-			DPRINTK (KERN_DEBUG "ECP read timed out at 45\n");
++			pr_debug("ECP read timed out at 45\n");
+ 
+ 			if (command)
+ 				printk (KERN_WARNING
+@@ -620,7 +600,7 @@ size_t parport_ieee1284_ecp_read_data (struct parport *port,
+ 			memset (buf, byte, rle_count);
+ 			buf += rle_count;
+ 			count += rle_count;
+-			DPRINTK (KERN_DEBUG "%s: decompressed to %d bytes\n",
++			pr_debug("%s: decompressed to %d bytes\n",
+ 				 port->name, rle_count);
+ 		} else {
+ 			/* Normal data byte. */
+@@ -686,7 +666,7 @@ size_t parport_ieee1284_ecp_write_addr (struct parport *port,
+ 		}
+ 
+ 		/* Time for Host Transfer Recovery (page 41 of IEEE1284) */
+-		DPRINTK (KERN_DEBUG "%s: ECP transfer stalled!\n", port->name);
++		pr_debug("%s: ECP transfer stalled!\n", port->name);
+ 
+ 		parport_frob_control (port, PARPORT_CONTROL_INIT,
+ 				      PARPORT_CONTROL_INIT);
+@@ -702,8 +682,7 @@ size_t parport_ieee1284_ecp_write_addr (struct parport *port,
+ 		if (!(parport_read_status (port) & PARPORT_STATUS_PAPEROUT))
+ 			break;
+ 
+-		DPRINTK (KERN_DEBUG "%s: Host transfer recovered\n",
+-			 port->name);
++		pr_debug("%s: Host transfer recovered\n", port->name);
+ 
+ 		if (time_after_eq (jiffies, expire)) break;
+ 		goto try_again;
+
+
+
+
+_______________________________________________
+Linux-parport mailing list
+Linux-parport@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-parport
